@@ -5,7 +5,7 @@ function App() {
   const [calc, setCalc] = useState('');
   const [result, setResult] = useState('');
   
-  const ops = ['÷', '*', '+', '-', '.'];
+  const ops = ['/', '*', '+', '-', '.'];
 
   const updateCalc = value => {
     if(
@@ -15,17 +15,38 @@ function App() {
       return;
     }
     setCalc(calc + value)
+
+    if(!ops.includes(value)) {
+      setResult(eval(calc + value).toString())
+    }
+  }
+
+  const calculate = () => {
+    setCalc(eval(calc).toString())
+  }
+
+  const deleteLast = () => {
+    if(calc === '') {
+      return;
+    }
+
+    const value = calc.slice(0, -1);
+    setCalc(value)
+  }
+
+  const clear = () => {
+    setCalc('')
   }
 
   return (
     <div className='calculator-grid'>
       <div className="output">
-          <div className="previous-operand">{ result || '0'}</div>
+          <div className="previous-operand">{ result || '' }</div>
           <div className="current-operand">{ calc || '0' }</div>
       </div>
-      <button className="span-two">AC</button>
-      <button>DEL</button>
-      <button onClick={() => updateCalc('÷')}>÷</button>
+      <button className="span-two" onClick={() => clear()}>AC</button>
+      <button onClick={() => deleteLast()}>DEL </button>
+      <button onClick={() => updateCalc('/')}>÷</button>
       <button onClick={() => updateCalc('1')}>1</button>
       <button onClick={() => updateCalc('2')}>2</button>
       <button onClick={() => updateCalc('3')}>3</button>
@@ -41,7 +62,7 @@ function App() {
       <button onClick={() => updateCalc('.')}>.</button>
       <button onClick={() => updateCalc('0')}>0</button>
 
-      <button className="span-two">=</button>
+      <button className="span-two" onClick={calculate}>=</button>
     </div>
   )
 }
