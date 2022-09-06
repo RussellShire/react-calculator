@@ -14,15 +14,23 @@ function App() {
     ) {
       return;
     }
-    setCalc(calc + value)
 
-    if(!ops.includes(value)) {
-      setResult(eval(calc + value).toString())
+    if(result.slice(-1) === '='){
+      setCalc(value)
+      setResult('')
+    } else {
+      setCalc(calc + value)
+
+      if(!ops.includes(value)) {
+        setResult(Function("return " + (calc + value))().toString())
+      }
     }
   }
 
   const calculate = () => {
-    setCalc(eval(calc).toString())
+    setResult(calc+'=')
+    setCalc(Function("return " + calc)().toString())
+    
   }
 
   const deleteLast = () => {
@@ -30,12 +38,13 @@ function App() {
       return;
     }
 
-    const value = calc.slice(0, -1);
+  const value = calc.slice(0, -1);
     setCalc(value)
   }
 
   const clear = () => {
     setCalc('')
+    setResult('')
   }
 
   return (
