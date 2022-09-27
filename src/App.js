@@ -1,5 +1,5 @@
 import "./styles.css";
-import { useState } from 'react';
+import { React, useState } from 'react';
 
 function App() {
   const [calc, setCalc] = useState('');
@@ -22,14 +22,14 @@ function App() {
       setCalc(calc + value)
 
       if(!ops.includes(value)) {
-        setResult(Function("return " + (calc + value))().toString())
+        setResult(eval(calc + value).toString())
       }
     }
   }
 
   const calculate = () => {
     setResult(calc+'=')
-    setCalc(Function("return " + calc)().toString())
+    setCalc(eval(calc).toString())
     
   }
 
@@ -39,7 +39,10 @@ function App() {
     }
 
   const value = calc.slice(0, -1);
-    setCalc(value)
+  
+  setCalc(value)
+ 
+    setResult(eval(value).toString())
   }
 
   const clear = () => {
