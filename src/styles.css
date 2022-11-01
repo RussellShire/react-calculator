@@ -3,13 +3,14 @@
 }
 
 body {
-    margin: 1rem;
+    /* margin: 1rem; */
     background: grey;
 }
 
 .calculator-grid {
     display: grid;
     margin-top: 2rem;
+    /* border: 2px solid white; */
     grid-template-columns: repeat(4, 6rem);
     grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
@@ -20,14 +21,11 @@ body {
     border: 1px solid white;
     outline: none;
     background-color: rgba(255, 255, 255, .75);
-
-
 }
 
 .calculator-grid > button:hover,
 .calculator-grid > button:focus {
-background-color: rgba(255, 255, 255, .1);
-    
+    background-color: rgba(255, 255, 255, .1);
 }
 
 .span-two {
