@@ -50,6 +50,8 @@ function App() {
     setResult('')
   }
 
+  const buttonGrid = ['/','1','2','3','*','4','5','6','+','7','8','9','-','.','0']
+
   return (
     <div className='calculator-grid'>
       <div className="output">
@@ -57,22 +59,13 @@ function App() {
           <div className="current-operand">{ calc || '0' }</div>
       </div>
       <button className="span-two" onClick={() => clear()}>AC</button>
+      
       <button onClick={() => deleteLast()}>DEL </button>
-      <button onClick={() => updateCalc('/')}>÷</button>
-      <button onClick={() => updateCalc('1')}>1</button>
-      <button onClick={() => updateCalc('2')}>2</button>
-      <button onClick={() => updateCalc('3')}>3</button>
-      <button onClick={() => updateCalc('*')}>*</button>
-      <button onClick={() => updateCalc('4')}>4</button>
-      <button onClick={() => updateCalc('5')}>5</button>
-      <button onClick={() => updateCalc('6')}>6</button>
-      <button onClick={() => updateCalc('+')}>+</button>
-      <button onClick={() => updateCalc('7')}>7</button>
-      <button onClick={() => updateCalc('8')}>8</button>
-      <button onClick={() => updateCalc('9')}>9</button>
-      <button onClick={() => updateCalc('-')}>-</button>
-      <button onClick={() => updateCalc('.')}>.</button>
-      <button onClick={() => updateCalc('0')}>0</button>
+      {buttonGrid.map((button) => (
+        <button onClick={() => updateCalc(button)}>{button}</button>
+        )
+      )}
+      
 
       <button className="span-two" onClick={calculate}>=</button>
     </div>
