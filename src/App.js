@@ -1,12 +1,12 @@
 import "./styles.css";
 import { React, useState } from 'react';
 
+export const ops = ['/', '*', '+', '-', '.'];
+
 function App() {
   const [calc, setCalc] = useState('');
   const [result, setResult] = useState('');
   
-  const ops = ['/', '*', '+', '-', '.'];
-
   const updateCalc = value => {
     if(
       (ops.includes(value) && calc === '') ||
@@ -28,6 +28,7 @@ function App() {
   }
 
   const calculate = () => {
+    console.log(calc)
     setResult(calc+'=')
     setCalc(eval(calc).toString())
     
