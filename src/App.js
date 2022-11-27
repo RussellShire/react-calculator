@@ -1,7 +1,10 @@
 import "./styles.css";
 import { React, useState } from 'react';
+import calculate from "./Calculate";
 
 export const ops = ['/', '*', '+', '-', '.'];
+
+calculate('18+4')
 
 function App() {
   const [calc, setCalc] = useState('');
