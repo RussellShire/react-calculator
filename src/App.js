@@ -63,7 +63,7 @@ function App() {
       
       <button onClick={() => deleteLast()}>DEL </button>
       {buttonGrid.map((button) => (
-        <button onClick={() => updateCalc(button)}>{button}</button>
+        <button key={button} onClick={() => updateCalc(button)}>{button}</button>
         )
       )}
       
