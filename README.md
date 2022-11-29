@@ -16,10 +16,10 @@ https://russellshire.github.io/react-calculator/
 
 # To Do
 
-- Currently this relies on eval which is insecure, replace this
-- Styling could be added such as centering
+- Fix bug where if people press equals on an operand it returns zero eg. '3x3x=' = 0 rather than ignoring second 'x' and returning 9.
 - Currently after pressing equals then an operand it starts a new calculation, it would be nice if people could perform futher calculations on the results of previous calculatons
 - Minus numbers currently not being handled
+- Styling could be added such as centering
 
 # Usage
 
