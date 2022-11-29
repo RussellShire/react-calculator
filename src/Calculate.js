@@ -8,45 +8,37 @@ const calculate = (calc) => {
     // console.log(nums)
     // console.log(operations)
 
-    operations.map((op) => {
-        let calcuation = ''
-        let mapIndex = operationsClone.indexOf(op)
-
-        if(op === '*' || op === '/'){
-            if(op === '*') {
-                calcuation = nums[mapIndex-1] * nums[mapIndex]
+    operations.map(op => { 
+        if(op === '*' || op === '/'){ // first map checking for multiplaction or divide (because of order of operations)
+            let mapIndex = operationsClone.indexOf(op)  // creating an index from the clone because the cloned array will be manipulated
+            
+            if(op === '*') { // if statement to check if operation is multiply or divide
+                nums[mapIndex] = nums[mapIndex-1] * nums[mapIndex] // performs the operation on the numbers either side of the operation and sets it to the rightmost operation
             } else {
-                calcuation = nums[mapIndex-1] / nums[mapIndex]
+                nums[mapIndex] = nums[mapIndex-1] / nums[mapIndex]
             }
             
-            nums[mapIndex] = calcuation
-            nums.splice(mapIndex-1, 1)
-
-            operationsClone.splice(operationsClone.indexOf(op), 1)
+            nums.splice(mapIndex-1, 1) // removes the first number the operation was performed on leaving only the calcualted result
+            operationsClone.splice(operationsClone.indexOf(op), 1) // removes the operation that has just been performed from the cloned array
         } 
     })
 
-    operations.map((op) => {
-        let calcuation = ''
-        let mapIndex = operationsClone.indexOf(op)
-        
-        if(op === '+' || op === '-'){
-            if(op === '+') {
-                calcuation = nums[mapIndex-1] + nums[mapIndex]
+    operations.map(op => { 
+        if(op === '+' || op === '-'){ // first map checking for multiplaction or divide (because of order of operations)
+            let mapIndex = operationsClone.indexOf(op)  // creating an index from the clone because the cloned array will be manipulated
+            
+            if(op === '+') { // if statement to check if operation is multiply or divide
+                nums[mapIndex] = nums[mapIndex-1] + nums[mapIndex] // performs the operation on the numbers either side of the operation and sets it to the rightmost operation
             } else {
-                calcuation = nums[mapIndex-1] - nums[mapIndex]
+                nums[mapIndex] = nums[mapIndex-1] - nums[mapIndex]
             }
-           
-            nums[mapIndex] = calcuation
-            nums.splice(mapIndex-1, 1)
-
-            operationsClone.splice(operationsClone.indexOf(op), 1)
+            
+            nums.splice(mapIndex-1, 1) // removes the first number the operation was performed on leaving only the calcualted result
+            operationsClone.splice(operationsClone.indexOf(op), 1) // removes the operation that has just been performed from the cloned array
         } 
     })
 
     console.log('final nums = ', nums)
-    // console.log(operations)
-    // console.log(operations.indexOf('+'))
 }
 
 export default calculate;
