@@ -1,57 +1,57 @@
 // import { ops } from "./App";
 
 const calculate = (calc) => {
-    let split = calc.split(/[/*+-]+/) //jumping into Regex to split by multiple delminiators
-    split = split.map(item => Number(item)) // convert string to Number
+    let nums = calc.split(/[/*+-]+/) //jumping into Regex to nums by multiple delminiators
+    nums = nums.map(item => Number(item)) // convert string to Number
 
-    const splitOps = calc.split(/[0.0-9]+/)
+    const operations = calc.split(/[0.0-9]+/)
 
-    console.log(split)
+    console.log(nums)
 
-    splitOps.map((op, index) => {
+    operations.map((op, index) => {
         let calcuation = ''
         if(op === '*' || op === '/'){
             switch(op){
                 case '*':
-                    calcuation = split[index-1] * split[index]
+                    calcuation = nums[index-1] * nums[index]
                     break;
                 case '/':
-                    calcuation = split[index-1] / split[index]
+                    calcuation = nums[index-1] / nums[index]
                     break;
                 default:
                     break;
             }
-            split[index-1] = 0
-            split[index] = calcuation
+            nums[index-1] = 0
+            nums[index] = calcuation
         } 
     })
 
-    console.log(split)
+    console.log(nums)
 
-    splitOps.map((op, index) => {
+    operations.map((op, index) => {
         let calcuation = ''
         if(op === '+' || op === '-'){
             switch(op){
                 case '+':
-                    calcuation = split[index-1] + split[index]
+                    calcuation = nums[index-1] + nums[index]
                     break;
                 case '-':
-                    calcuation = split[index-1] / split[index]
+                    calcuation = nums[index-1] / nums[index]
                     break;
                 default:
                     break;
             }
-            split[index-1] = 0
-            split[index] = calcuation
+            nums[index-1] = 0
+            nums[index] = calcuation
         } 
     })
 
 
     // console.log(typeof('+'))
     // console.log(calcuation)
-    console.log(split)
-    console.log(splitOps)
-    // console.log(splitOps.indexOf('+'))
+    console.log(nums)
+    console.log(operations)
+    // console.log(operations.indexOf('+'))
 }
 
 export default calculate;
