@@ -1,4 +1,4 @@
-const calculate = (calc) => {
+const evaluateString = (calc) => {
     let nums = calc.split(/[/*+-]+/) // Regex to turn string into an array of numbers by splitting by multiple delminiators
     nums = nums.map(item => Number(item)) // convert strings to Numbers
 
@@ -41,8 +41,8 @@ const calculate = (calc) => {
     })
 
     console.log('final nums = ', nums[0])
-    
+
     return nums[0]
 }
 
-export default calculate;
+export default evaluateString;

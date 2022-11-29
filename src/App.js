@@ -1,10 +1,10 @@
 import "./styles.css";
 import { React, useState } from 'react';
-import calculate from "./Calculate";
+import evaluateString from "./calculate";
 
 export const ops = ['/', '*', '+', '-', '.'];
 
-calculate('2+2/2+2')
+
 
 function App() {
   const [calc, setCalc] = useState('');
@@ -25,7 +25,7 @@ function App() {
       setCalc(calc + value)
 
       if(!ops.includes(value)) {
-        setResult(eval(calc + value).toString())
+        setResult(evaluateString(calc + value).toString())
       }
     }
   }
@@ -33,7 +33,7 @@ function App() {
   const calculate = () => {
     console.log(calc)
     setResult(calc+'=')
-    setCalc(eval(calc).toString())
+    setCalc(evaluateString(calc).toString())
     
   }
 
@@ -46,7 +46,7 @@ function App() {
   
   setCalc(value)
  
-    setResult(eval(value).toString())
+    setResult(evaluateString(value).toString())
   }
 
   const clear = () => {
@@ -70,7 +70,6 @@ function App() {
         )
       )}
       
-
       <button className="span-two" onClick={calculate}>=</button>
     </div>
   )
