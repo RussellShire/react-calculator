@@ -4,7 +4,7 @@ import calculate from "./Calculate";
 
 export const ops = ['/', '*', '+', '-', '.'];
 
-calculate('18.5*4+2*2')
+calculate('2+2+2+2-4')
 
 function App() {
   const [calc, setCalc] = useState('');

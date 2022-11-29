@@ -7,6 +7,7 @@ const calculate = (calc) => {
     const operations = calc.split(/[0.0-9]+/)
 
     console.log(nums)
+    console.log(operations)
 
     operations.map((op, index) => {
         let calcuation = ''
@@ -21,12 +22,15 @@ const calculate = (calc) => {
                 default:
                     break;
             }
-            nums[index-1] = 0
             nums[index] = calcuation
+            nums.splice(index-1, 1)
+            operations.splice(index, 1)
+
+            console.log(nums)
         } 
     })
 
-    console.log(nums)
+    console.log(operations)
 
     operations.map((op, index) => {
         let calcuation = ''
@@ -41,10 +45,51 @@ const calculate = (calc) => {
                 default:
                     break;
             }
-            nums[index-1] = 0
             nums[index] = calcuation
+            nums.splice(index-1, 1)
+            operations.splice(index, 1)
+
+            console.log(nums)
         } 
     })
+
+    // operations.map((op, index) => {
+    //     let calcuation = ''
+    //     if(op === '*' || op === '/'){
+    //         switch(op){
+    //             case '*':
+    //                 calcuation = nums[index-1] * nums[index]
+    //                 break;
+    //             case '/':
+    //                 calcuation = nums[index-1] / nums[index]
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //         nums[index-1] = 0
+    //         nums[index] = calcuation
+    //     } 
+    // })
+
+    // console.log(nums)
+
+    // operations.map((op, index) => {
+    //     let calcuation = ''
+    //     if(op === '+' || op === '-'){
+    //         switch(op){
+    //             case '+':
+    //                 calcuation = nums[index-1] + nums[index]
+    //                 break;
+    //             case '-':
+    //                 calcuation = nums[index-1] / nums[index]
+    //                 break;
+    //             default:
+    //                 break;
+    //         }
+    //         nums[index-1] = 0
+    //         nums[index] = calcuation
+    //     } 
+    // })
 
 
     // console.log(typeof('+'))
