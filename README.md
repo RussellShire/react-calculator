@@ -1,14 +1,15 @@
 # REACT CALCULATOR
 
-A calculator in React built using functional components.
+A calculator built in React using functional components.
 
 # Project Specification
 
 - A simple calculator built in React
-- There should be an output that shows user inputs
-- When equals is pressed the result should appear in the output and the requested steps should also be displayed
+- There should be an output that immediately shows user inputs
+- When equals is pressed the result should appear in the output
+- When equals is pressed the requested steps should also be displayed
+- Users shouldn't be able to add more than one period or operand between number inputs
 - Functionality is more important than looks
-- Users shouldn't be able to add more than one period or operand
 
 # Hosted
 
@@ -16,7 +17,10 @@ https://russellshire.github.io/react-calculator/
 
 # To Do
 
-- Fix bug where if people press equals on an operand it returns zero eg. '3x3x=' = 0 rather than ignoring second 'x' and returning 9.
+- Fix bug where if people press equals immediately after an operand it returns zero eg. '3x3x=' = 0 rather than ignoring second 'x' and returning 9
+
+# Optional To Do
+
 - Currently after pressing equals then an operand it starts a new calculation, it would be nice if people could perform futher calculations on the results of previous calculatons
 - Minus numbers currently not being handled
 - Styling could be added such as centering
