@@ -2,6 +2,10 @@
 
 A calculator built in React using functional components.
 
+This is one of several calculators I've built to learn different JavaScript frameworks.
+Vue Calculator: https://github.com/RussellShire/vue-calculator
+Svelte Calculator: https://github.com/RussellShire/svelte-calculator
+
 # Project Specification
 
 - A simple calculator built in React
